@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <title>Add Product</title>
+</head>
+
+<style>
+  body {
+    background-color:lavender;
+  }
+  .nav-item:hover {
+    background-color:wheat;
+  }
+  .form1{
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  .container{
+    border: solid 2px black;
+    margin: center;
+    padding: 25px 25px;
+    width: 50%;
+  }
+</style>
+
+<body >
+    <h1 style="text-align: center;text-shadow: 2px 2px 5px red;">Add Product</h1>
+        <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home Page</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/insert">Insert</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/edit">Update</a>
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+</nav>
+  <div class="container">
+    <div style="width: 50%;" class="form1">
+        <form action="/insert" method="post">
+            <div class="mb-3">
+                <label class="form-label" for="txtName"> Product Name</label>
+                <input type="text" class="form-control" name="txtName" id="txtName" required="">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="txtPrice"> Price</label>
+                <input type="text" class="form-control" name="txtPrice" id="txtPrice" required="">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="txtURL"> Picture</label>
+                <input type="text" class="form-control" name="txtURL" id="txtURL" required="">
+                <span style="color: red;">{{picError}}</span>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Insert" style="width:100px ">
+        </form>
+    </div>
+  </div>
+</body>
+
+</html>

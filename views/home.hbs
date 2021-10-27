@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Home page</title>
+</head>
+
+<style>
+  .tb1{
+    border: 1px solid;
+    width: fit-content;
+    margin:auto;
+  }
+  body{
+    background-color: lavender;
+  }
+  .headings{
+    color:aquamarine;
+    text-align: center;
+    margin: 50%;
+    font-family: cursive;
+    background-color:crimson;
+  }
+  .prod{
+    color:rgb(238, 117, 12);
+  }
+  .edt{
+    color:rgba(7, 3, 0, 0.5);
+  }
+  .prod td{
+    padding:20px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  .nav-item:hover{
+    background-color:wheat;
+  } 
+
+</style>
+<body>
+    <h1 style="text-align:center; text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff">Toys Store</h1>
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Home Page</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/insert">Insert</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/edit">Update</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <hr>
+    <div class="tb1">
+    <table>
+        <tr class="headings">
+            <td>Id</td>
+            <td>Name</td>
+            <td>Price</td>
+            <Td>Picture</Td>
+            <td>Edit/Delete</td>
+        </tr>
+        {{#each products}}
+        <tr class="prod">
+            <td>{{_id}}</td>
+            <td>{{name}}</td>
+            <td>{{price}}</td>
+            <td><img src="{{picURL}}" width="200" height="100" /></td>
+            <td>
+                <a href="/edit/{{_id}}" class="edt"><i class="glyphicon glyphicon-edit"></i></a>
+                <a href="/delete/{{_id}}" onclick="return confirm('Are you sure you want to delete this?')"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    </div>
+</body>
+</html>
