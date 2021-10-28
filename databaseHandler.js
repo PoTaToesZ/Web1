@@ -34,9 +34,9 @@ async function deleteObject(id,collectionName){
     await dbo.collection(collectionName).deleteOne({_id:ObjectId(id)})
 }
 
-async function updateById(id, updateValue, collectionName) {
+async function updateById(_id, updateValue, collectionName) {
     const dbo = await getDatabase();
-    await dbo.collection(collectionName).updateOne({ _id: ObjectId(id)}, updateValue);
+    await dbo.collection(collectionName).updateOne({ _id:ObjectId}, updateValue);
     console.log("Object Updated!");
 }
 module.exports = {insertToDB,getAll,deleteObject,getDocumentById,updateById};

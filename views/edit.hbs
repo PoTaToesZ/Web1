@@ -24,8 +24,10 @@
         margin-left: 23%;
         padding: 25px 25px;
         width: 50%;
-        
     }
+    .nav-item:hover{
+    background-color:wheat;
+    } 
 </style>
 
 <body>
@@ -37,7 +39,8 @@
         <br><br><br>
         Price: <input type="text" name="txtPrice" required="" value="{{product.price}}">
         <br><br>
-        Picture: <input type="text" name="txtUrl" required="" value="{{product.picURL}}">
+        Picture: <input type="text" name="txtUrl"  value="{{product.picURL}}">
+        <span style="color:red">{{urlError}}</span>
         <input type="submit" value="Update">
         <a onclick="return confirm('Are you sure you want to cancel')" href="/">Cancel</a>
     </form>

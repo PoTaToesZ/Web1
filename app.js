@@ -46,11 +46,17 @@ app.post("/update", async (req, res) => {
     const id = req.body.txtId;
     const name = req.body.txtName;
     const price = req.body.txtPrice;
-    const picUrl = req.body.txtUrl;
-    let updateVal = {$set: {name: name,price: price, picUrl: picUrl},};
+    const Url = req.body.txtUrl;
+    if(Url.length == 0){
+        const idValue = req.params.id
+        const productToEdit = await getDocumentById(idValue, "Products")
+        res.render('edit',{products:productToEdit,urlError:"Please fill in the box"})
+    }else{
+    let updateVal = {$set: {name: name,price: price, picURL: Url}};
 
     await updateById( id, updateVal, "Products");
     res.redirect("/");
+    }
 })
 
 app.get('/insert', function(req, res){
