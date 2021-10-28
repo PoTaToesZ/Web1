@@ -24,7 +24,10 @@ app.get('/', async (req, res) => {
 })
 app.get('/delete/:id', async (req, res) => {
     const idValue = req.params.id
-    await deleteObject(idValue, "Products")
+    const name = req.body.txtName
+    if(name.startsWith("Wing") == true){}
+    else{alert("Cannot delete")}
+        await deleteObject(idValue,"Products")
     res.redirect('/')
 })
 app.post('/insert', async (req, res) => {
@@ -53,7 +56,6 @@ app.post("/update", async (req, res) => {
         res.render('edit',{products:productToEdit,urlError:"Please fill in the box"})
     }else{
     let updateVal = {$set: {name: name,price: price, picURL: Url}};
-
     await updateById( id, updateVal, "Products");
     res.redirect("/");
     }
